@@ -6,32 +6,29 @@
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="2_dbls1"]
 [ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="4_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://dtkeiebeowxdh" path="res://scene/coin.tscn" id="4_xwcet"]
+[ext_resource type="Shader" uid="uid://bpgt80mannrbd" path="res://scene/remolino.gdshader" id="5_nk6ix"]
 [ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://scene/slime.tscn" id="6_xlg7c"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="8_17rxn"]
 [ext_resource type="PackedScene" uid="uid://dt5hqqlr0he1t" path="res://scene/label_score.tscn" id="8_b74c3"]
 [ext_resource type="PackedScene" uid="uid://dvqp0cjcs8ddo" path="res://scene/label_version.tscn" id="10_b74c3"]
 [ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="11_spjak"]
-[ext_resource type="Shader" uid="uid://bpgt80mannrbd" path="res://scene/remolino.gdshader" id="12_nk6ix"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="13_uxdda"]
 [ext_resource type="Shader" uid="uid://d3bl2xbvicka7" path="res://scene/twirl2.gdshader" id="14_86n4m"]
-[ext_resource type="Texture2D" uid="uid://udn5d0cwxl8q" path="res://build/GodotTest.apple-touch-icon.png" id="15_uxdda"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wq61u"]
-shader = ExtResource("12_nk6ix")
-shader_parameter/segments = 1.0
-shader_parameter/zoom = -0.065
-shader_parameter/tightness = 1000.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7j5g0"]
 shader = ExtResource("14_86n4m")
-shader_parameter/portal_noise_texture = ExtResource("15_uxdda")
-shader_parameter/speed = 0.3
-shader_parameter/power_stregth = 0.3
-shader_parameter/portal_dark_color = Color(0.15, 0, 0.3, 1)
-shader_parameter/portal_bright_color = Color(0.3, 0.9, 1, 1)
+shader_parameter/swirl_center = Vector2(0.5, 0.5)
+shader_parameter/swirl_radius = 0.5
 shader_parameter/twist_strength = 3.0
-shader_parameter/rim_color_stregth = 2.0
-shader_parameter/rim_color_source = Color(0, 0, 0, 1)
+shader_parameter/effect_amount = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq61u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wq61u"]
+shader = ExtResource("5_nk6ix")
+shader_parameter/segments = 1.0
+shader_parameter/zoom = 0.065
+shader_parameter/tightness = 1000.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ry8"]
 texture = ExtResource("2_dbls1")
@@ -420,12 +417,40 @@ font_size = 8
 
 [node name="Game" type="Node2D" unique_id=1650123467]
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1973380991]
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer2" unique_id=1887279805]
+visible = false
+clip_children = 2
+z_index = 12
+material = SubResource("ShaderMaterial_7j5g0")
+position = Vector2(570.65625, 321.41602)
+scale = Vector2(8.927246, 5.1966248)
+texture = ExtResource("13_uxdda")
+
 [node name="GameManager" type="Node" parent="." unique_id=1040694548]
 unique_name_in_owner = true
 script = ExtResource("1_ll5lq")
-level_score = 9
+
+[node name="Finish" type="Area2D" parent="." unique_id=1690390071]
+position = Vector2(388, -15)
+scale = Vector2(3.046875, 1.6015625)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=1918819954]
+position = Vector2(-6.892308, -0.62439024)
+shape = SubResource("RectangleShape2D_wq61u")
 
 [node name="Player" parent="." unique_id=48285453 instance=ExtResource("1_5kiuu")]
+
+[node name="shader1" type="Sprite2D" parent="Player" unique_id=1147227704]
+visible = false
+z_index = 5
+texture_repeat = 2
+material = SubResource("ShaderMaterial_wq61u")
+position = Vector2(41.58, 51)
+scale = Vector2(3.046875, 1.6015625)
+texture = ExtResource("13_uxdda")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1723020286]
 position = Vector2(5, 3)
@@ -433,22 +458,6 @@ zoom = Vector2(4, 4)
 limit_bottom = 120
 limit_smoothed = true
 position_smoothing_speed = 250.0
-
-[node name="shader1" type="Sprite2D" parent="Player/Camera2D" unique_id=1147227704]
-z_index = 5
-texture_repeat = 2
-material = SubResource("ShaderMaterial_wq61u")
-position = Vector2(36.58, 48)
-scale = Vector2(3.046875, 1.6015625)
-texture = ExtResource("13_uxdda")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Player/Camera2D/shader1" unique_id=1887279805]
-clip_children = 2
-z_index = 5
-material = SubResource("ShaderMaterial_7j5g0")
-position = Vector2(3.99, 0)
-scale = Vector2(1.5625, 1.6796875)
-texture = ExtResource("13_uxdda")
 
 [node name="Tiles" type="Node" parent="." unique_id=1486039012]
 
@@ -492,10 +501,6 @@ autoplay = &"platform_move"
 
 [node name="Slime" parent="Enemys" unique_id=969224363 instance=ExtResource("6_xlg7c")]
 position = Vector2(63, 9)
-initialDir = 1
-
-[node name="Slime2" parent="Enemys" unique_id=370439547 instance=ExtResource("6_xlg7c")]
-position = Vector2(364, -5)
 initialDir = 1
 
 [node name="Coins" type="Node" parent="." unique_id=849756700]
@@ -546,3 +551,4 @@ label_settings = SubResource("LabelSettings_xlg7c")
 [node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("11_spjak")]
 
 [connection signal="OnPointAdded" from="GameManager" to="Labels/LabelScore" method="_on_game_manager_on_point_added"]
+[connection signal="body_entered" from="Finish" to="GameManager" method="_on_finish_body_entered"]
