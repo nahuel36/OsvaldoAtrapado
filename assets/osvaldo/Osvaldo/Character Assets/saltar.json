@@ -1,0 +1,81 @@
+{ "frames": {
+   "saltar 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "sourceSize": { "w": 28, "h": 36 },
+    "duration": 150
+   },
+   "saltar 1.aseprite": {
+    "frame": { "x": 28, "y": 0, "w": 28, "h": 36 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "sourceSize": { "w": 28, "h": 36 },
+    "duration": 150
+   },
+   "saltar 2.aseprite": {
+    "frame": { "x": 56, "y": 0, "w": 28, "h": 36 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "sourceSize": { "w": 28, "h": 36 },
+    "duration": 100
+   },
+   "saltar 3.aseprite": {
+    "frame": { "x": 0, "y": 36, "w": 28, "h": 36 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "sourceSize": { "w": 28, "h": 36 },
+    "duration": 100
+   },
+   "saltar 4.aseprite": {
+    "frame": { "x": 28, "y": 36, "w": 28, "h": 36 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "sourceSize": { "w": 28, "h": 36 },
+    "duration": 100
+   },
+   "saltar 5.aseprite": {
+    "frame": { "x": 56, "y": 36, "w": 28, "h": 36 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "sourceSize": { "w": 28, "h": 36 },
+    "duration": 150
+   },
+   "saltar 6.aseprite": {
+    "frame": { "x": 0, "y": 72, "w": 28, "h": 36 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "sourceSize": { "w": 28, "h": 36 },
+    "duration": 100
+   },
+   "saltar 7.aseprite": {
+    "frame": { "x": 28, "y": 72, "w": 28, "h": 36 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 36 },
+    "sourceSize": { "w": 28, "h": 36 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3-rc2-x64",
+  "format": "RGBA8888",
+  "size": { "w": 84, "h": 108 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
