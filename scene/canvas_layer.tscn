@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://jtxt4pnsigiy"]
+
+[ext_resource type="Texture2D" uid="uid://bay8akqaghyyd" path="res://assets/sprites/arrow-left.png" id="1_gjjnk"]
+[ext_resource type="Texture2D" uid="uid://glnx2gs2jxig" path="res://assets/sprites/arrow-right.png" id="2_oc3i3"]
+[ext_resource type="Texture2D" uid="uid://b1mtw66suv2bd" path="res://assets/sprites/arrow-up.png" id="3_f60wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22mai"]
+atlas = ExtResource("1_gjjnk")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fkuc"]
+atlas = ExtResource("2_oc3i3")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3dfr"]
+atlas = ExtResource("3_f60wf")
+region = Rect2(0, 0, 70, 70)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1219658556]
+
+[node name="Control3" type="Control" parent="." unique_id=1506968417]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Control3" unique_id=278149590]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -175.0
+grow_vertical = 0
+
+[node name="TouchScreenButtonLeft" type="TouchScreenButton" parent="Control3/Control" unique_id=388046026]
+position = Vector2(0, 9)
+scale = Vector2(2.457143, 2.3142855)
+texture_normal = SubResource("AtlasTexture_22mai")
+action = "move_left"
+visibility_mode = 1
+
+[node name="TouchScreenButtonRight" type="TouchScreenButton" parent="Control3/Control" unique_id=540221162]
+position = Vector2(178, 3.9999998)
+scale = Vector2(2.7000005, 2.4142861)
+texture_normal = SubResource("AtlasTexture_8fkuc")
+action = "move_right"
+visibility_mode = 1
+
+[node name="Control2" type="Control" parent="Control3" unique_id=65065462]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -175.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TouchScreenButtonJump" type="TouchScreenButton" parent="Control3/Control2" unique_id=1485487590]
+scale = Vector2(2.4571426, 2.3714283)
+texture_normal = SubResource("AtlasTexture_y3dfr")
+action = "jump"
+visibility_mode = 1

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bhyctoxdkruw4"]
+
+[ext_resource type="Texture2D" uid="uid://bl53gpvg5mh1y" path="res://assets/sprites/slime_green.png" id="1_5jc4t"]
+[ext_resource type="Script" uid="uid://dg8tpc70gfgva" path="res://scripts/slime.gd" id="1_p3a6y"]
+[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="2_4l1t8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppcr1"]
+atlas = ExtResource("1_5jc4t")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jayke"]
+atlas = ExtResource("1_5jc4t")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2002g"]
+atlas = ExtResource("1_5jc4t")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bratd"]
+atlas = ExtResource("1_5jc4t")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wq61u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppcr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jayke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2002g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bratd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjaqi"]
+radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq61u"]
+size = Vector2(8, 10)
+
+[node name="Slime" type="CharacterBody2D" unique_id=370439547]
+collision_layer = 4
+script = ExtResource("1_p3a6y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1007839668]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_wq61u")
+autoplay = "default"
+frame = 3
+frame_progress = 0.5380179
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=944028473]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_hjaqi")
+
+[node name="Timer" type="Timer" parent="." unique_id=1482301753]
+
+[node name="KillZone" parent="." unique_id=1319863359 instance=ExtResource("2_4l1t8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=227977538]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_wq61u")
+
+[node name="RayCast2DRight" type="RayCast2D" parent="." unique_id=1312435844]
+position = Vector2(7, -12)
+target_position = Vector2(3, 0)
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="." unique_id=217525358]
+position = Vector2(-7, -12)
+target_position = Vector2(-3, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

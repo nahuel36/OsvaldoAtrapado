@@ -1,0 +1,45 @@
+shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+
+uniform sampler2D portal_noise_texture: repeat_enable;
+uniform float speed = 0.3;
+uniform float power_stregth : hint_range(0.0, 5.0, 0.1) = 0.3;
+uniform vec3 portal_dark_color : source_color = vec3(0.15, 0.0, 0.3);
+uniform vec3 portal_bright_color : source_color = vec3(0.3, 0.9, 1.0);
+uniform float twist_strength: hint_range(-10.0, 10.0, 0.1) = 3.0;
+uniform float rim_color_stregth = 2.0;
+uniform vec3 rim_color_source: source_color;
+uniform sampler2D sct : hint_screen_texture;
+vec4 overlay(vec4 base, vec4 blend)
+{
+	vec4 limit = step(0.5, base);
+	return mix(2.0 * base * blend, 1.0 - 2.0 * (1.0 - base) * (1.0 - blend), limit);	
+}
+
+void fragment() {
+	vec2 centered_uv =  UV - 0.5;
+	float distance_from_centered_uv = length(centered_uv);
+	float angle_around_center = atan(centered_uv.y, centered_uv.x);
+	float angle_remap = angle_around_center / PI * 0.5 + 0.5;
+	vec2 polar_uv = vec2(angle_remap + distance_from_centered_uv * twist_strength, distance_from_centered_uv);
+	float noise_value = texture(portal_noise_texture,vec2(polar_uv.x + TIME * speed, polar_uv.y + TIME * speed)).r;
+	
+	float combine_effect = smoothstep(0.4, 0.6, pow(noise_value, power_stregth));
+	vec3 portal_color = mix(portal_dark_color, portal_bright_color, combine_effect);
+	float mask_circle = smoothstep(0.5, 0.65, 1.0 - distance_from_centered_uv);
+	float center_hole_mask = smoothstep(0.03, 0.1, distance_from_centered_uv);
+	float rim_rising = smoothstep(0.25, 0.5, distance_from_centered_uv);
+	float rim_falling = smoothstep(0.5, 0.25, distance_from_centered_uv);
+	float rim_mask = rim_rising * rim_falling;
+	vec4 twirlcolor = vec4(vec3(portal_color * center_hole_mask + rim_mask * rim_color_source * rim_color_stregth), mask_circle * noise_value);
+	vec4 screencolor = texture(sct, SCREEN_UV);
+	COLOR =  overlay(twirlcolor, screencolor);
+}
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvqp0cjcs8ddo"]
+
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_36suv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wq61u"]
+font = ExtResource("1_36suv")
+font_size = 10
+
+[node name="LabelVersion" type="Node2D" unique_id=436346196]
+
+[node name="Label" type="Label" parent="." unique_id=1884425973]
+offset_left = -27.0
+offset_top = -9.0
+offset_right = 49.0
+offset_bottom = 26.0
+text = "v0.9.0
+"
+label_settings = SubResource("LabelSettings_wq61u")

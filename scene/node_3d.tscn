@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://mgp02mkor0at"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wq61u"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_wq61u"]
+
+[node name="Node3D" type="Node3D" unique_id=1433733731]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=739890057]
+transform = Transform3D(0.9455234, 0.27549946, 0.1734515, -0.2515213, 0.95645714, -0.14807734, -0.20669413, 0.09638388, 0.97364664, -0.048081517, -0.20218211, 0.1191926)
+mesh = SubResource("PlaneMesh_wq61u")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=2005169371]
+transform = Transform3D(0.9999999, -3.7252903e-09, 4.4703484e-08, 4.8428774e-08, 0.99999976, -7.450581e-09, 0, 7.450581e-09, 0.9999999, -0.12925377, 0.491512, -0.07609521)
+mesh = SubResource("PrismMesh_wq61u")

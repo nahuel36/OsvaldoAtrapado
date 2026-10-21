@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dt5hqqlr0he1t"]
+
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_f24wj"]
+[ext_resource type="Script" uid="uid://cinetv4o60lp" path="res://scripts/label_score.gd" id="2_dhep8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sng2h"]
+font = ExtResource("1_f24wj")
+font_size = 8
+font_color = Color(0, 0.6666667, 0.7921569, 1)
+
+[node name="LabelScore" type="Node2D" unique_id=2101233611]
+script = ExtResource("2_dhep8")
+
+[node name="LabelScore" type="Label" parent="." unique_id=1625265580]
+offset_left = -66.0
+offset_top = -3.0
+offset_right = 70.0
+offset_bottom = 50.0
+offset_transform_enabled = true
+text = "You collected 0 coins."
+label_settings = SubResource("LabelSettings_sng2h")
