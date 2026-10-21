@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bv7pnofyplk3v" path="res://assets/osvaldo/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="9_hguk5"]
 [ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://scene/twirl3.gdshader" id="10_hguk5"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="11_ii5f3"]
+[ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="13_genyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq61u"]
 size = Vector2(25, 30)
@@ -216,9 +217,6 @@ animations = [{
 "speed": 25.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j5g0"]
-size = Vector2(20, 16)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7r1y"]
 texture = ExtResource("4_rgrp3")
 0:0/0 = 0
@@ -353,6 +351,7 @@ zoom = Vector2(2, 2)
 
 [node name="Osvaldo" type="CharacterBody2D" parent="." unique_id=1880241669]
 position = Vector2(-140, 1)
+collision_layer = 2
 script = ExtResource("1_y17ty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osvaldo" unique_id=96277141]
@@ -364,15 +363,6 @@ sprite_frames = SubResource("SpriteFrames_7j5g0")
 animation = &"move"
 autoplay = "idle"
 frame_progress = 0.5582333
-
-[node name="PlatformAnimatable" type="AnimatableBody2D" parent="." unique_id=1061013519]
-position = Vector2(16, 56)
-
-[node name="Sprite" type="Sprite2D" parent="PlatformAnimatable" unique_id=567775067]
-texture = ExtResource("4_rgrp3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformAnimatable" unique_id=470388562]
-shape = SubResource("RectangleShape2D_7j5g0")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1394119946]
 tile_map_data = PackedByteArray("AAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAD6/wEAAgAAAAAAAAD5/wEAAgAAAAAAAAD4/wEAAgAAAAAAAAD3/wEAAgAAAAAAAAD2/wEAAgAAAAAAAAD1/wEAAgAAAAAAAAD0/wEAAgAAAAAAAAAHAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAALAAEAAgAAAAAAAAA=")
@@ -389,6 +379,7 @@ autoplay = "default"
 frame_progress = 0.08873779
 
 [node name="Area2D" type="Area2D" parent="Finish" unique_id=1858849829]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D" unique_id=1762138109]
 position = Vector2(1, 9)
@@ -423,3 +414,10 @@ offset_top = 69.0
 offset_right = -115.0
 offset_bottom = 92.0
 text = "Muevete hacia la meta"
+
+[node name="GameManager" type="Node" parent="." unique_id=915650460]
+unique_name_in_owner = true
+script = ExtResource("13_genyd")
+next_level = "res://scene/Levels/lvl2.tscn"
+
+[connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
