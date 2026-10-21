@@ -13,9 +13,11 @@
 [ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://scene/twirl3.gdshader" id="11_26ln7"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="12_l1qk2"]
 [ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="13_8q3du"]
+[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="14_nkmq4"]
+[ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="15_3fifi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq61u"]
-size = Vector2(25, 30)
+size = Vector2(16, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7r1y"]
 atlas = ExtResource("3_nkmq4")
@@ -384,7 +386,7 @@ shader_parameter/rim_color_strength = 2.0
 [sub_resource type="LabelSettings" id="LabelSettings_pue4x"]
 font_color = Color(0, 0, 0, 1)
 
-[node name="Lvl1" type="Node2D" unique_id=916896402]
+[node name="Lvl2" type="Node2D" unique_id=916896402]
 
 [node name="Orig" type="Sprite2D" parent="." unique_id=972028210]
 position = Vector2(-2, -5)
@@ -395,10 +397,11 @@ zoom = Vector2(2, 2)
 
 [node name="Osvaldo" type="CharacterBody2D" parent="." unique_id=1880241669]
 position = Vector2(-140, 1)
+collision_layer = 2
 script = ExtResource("2_8q3du")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osvaldo" unique_id=96277141]
-position = Vector2(0.5, 1)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wq61u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Osvaldo" unique_id=1717130892]
@@ -438,6 +441,7 @@ autoplay = "default"
 frame_progress = 0.08873779
 
 [node name="Area2D" type="Area2D" parent="Finish" unique_id=1858849829]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D" unique_id=1762138109]
 position = Vector2(1, 9)
@@ -478,3 +482,13 @@ text = "Puedes saltar"
 label_settings = SubResource("LabelSettings_pue4x")
 
 [node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("13_8q3du")]
+
+[node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("14_nkmq4")]
+position = Vector2(94, 130)
+
+[node name="GameManager" type="Node" parent="." unique_id=578313286]
+unique_name_in_owner = true
+script = ExtResource("15_3fifi")
+next_level = "res://scene/Levels/lvl1.tscn"
+
+[connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]

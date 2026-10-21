@@ -14,9 +14,10 @@
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="11_ii5f3"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="13_genyd"]
 [ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="14_lel61"]
+[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="15_t4olh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq61u"]
-size = Vector2(25, 30)
+size = Vector2(16, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7r1y"]
 atlas = ExtResource("1_6dgtr")
@@ -356,7 +357,7 @@ collision_layer = 2
 script = ExtResource("1_y17ty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osvaldo" unique_id=96277141]
-position = Vector2(0.5, 1)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_wq61u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Osvaldo" unique_id=1717130892]
@@ -422,5 +423,8 @@ script = ExtResource("13_genyd")
 next_level = "res://scene/Levels/lvl2.tscn"
 
 [node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("14_lel61")]
+
+[node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("15_t4olh")]
+position = Vector2(94, 77)
 
 [connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
