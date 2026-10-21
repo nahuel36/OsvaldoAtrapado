@@ -1,0 +1,262 @@
+[gd_scene format=4 uid="uid://dfu2vrl3bn3n4"]
+
+[ext_resource type="Texture2D" uid="uid://bt314i6ifcjda" path="res://assets/osvaldo/Backgrounds/background 1/orig.png" id="1_gj2ak"]
+[ext_resource type="PackedScene" uid="uid://cf2j5wr0s1aja" path="res://scene/osvaldo.tscn" id="2_6s3xt"]
+[ext_resource type="Texture2D" uid="uid://bsq3hecmut107" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk1.png" id="3_ws6cb"]
+[ext_resource type="Texture2D" uid="uid://dw52qtrbsg8ly" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk2.png" id="4_kgmij"]
+[ext_resource type="Texture2D" uid="uid://58efqsximuuw" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk8.png" id="5_iyn44"]
+[ext_resource type="Texture2D" uid="uid://deo0nlvjvrws4" path="res://assets/osvaldo/Items/Checkpoints/Start/Start (Idle).png" id="6_isg25"]
+[ext_resource type="PackedScene" uid="uid://kewycb1vgokh" path="res://scene/finish.tscn" id="7_0ycn5"]
+[ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://scene/twirl3.gdshader" id="8_8u3yt"]
+[ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="9_u5jnn"]
+[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="10_suy7t"]
+[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="11_ypvu2"]
+[ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="12_uypr4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j5g0"]
+size = Vector2(16.123499, 17)
+
+[sub_resource type="Animation" id="Animation_8q3du"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-24, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_nkmq4"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-72.73, 25), Vector2(-31.5, 25), Vector2(-72.73, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_0e7dk"]
+resource_name = "move2"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(63.68, 25), Vector2(9.645, 25), Vector2(63.68, 25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fifi"]
+_data = {
+&"RESET": SubResource("Animation_8q3du"),
+&"move": SubResource("Animation_nkmq4"),
+&"move2": SubResource("Animation_0e7dk")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7r1y"]
+texture = ExtResource("3_ws6cb")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74rvd"]
+texture = ExtResource("4_kgmij")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ii5f3"]
+texture = ExtResource("5_iyn44")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
+
+[sub_resource type="TileSet" id="TileSet_wq61u"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_t7r1y")
+sources/1 = SubResource("TileSetAtlasSource_74rvd")
+sources/2 = SubResource("TileSetAtlasSource_ii5f3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_genyd"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nk6ix"]
+noise = SubResource("FastNoiseLite_genyd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lel61"]
+shader = ExtResource("8_8u3yt")
+shader_parameter/portal_noise_texture = SubResource("NoiseTexture2D_nk6ix")
+shader_parameter/swirl_center = Vector2(0.75, 0.5)
+shader_parameter/viewport_size = Vector2(1152, 648)
+shader_parameter/swirl_radius = 200.0
+shader_parameter/twist_strength = 3.884000896989999
+shader_parameter/effect_amount = 0.6670000316825
+shader_parameter/speed = 0.3
+shader_parameter/power_strength = 1.16000005184012
+shader_parameter/portal_dark_color = Color(0.6860666, 0.21516854, 0.54347897, 1)
+shader_parameter/portal_bright_color = Color(0, 0, 0, 1)
+shader_parameter/rim_color_source = Color(0, 0, 0, 1)
+shader_parameter/rim_color_strength = 2.0
+
+[sub_resource type="Animation" id="Animation_gj2ak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-65.11, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_6s3xt"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-65.11, 10), Vector2(12.015, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ws6cb"]
+_data = {
+&"RESET": SubResource("Animation_gj2ak"),
+&"move": SubResource("Animation_6s3xt")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_pue4x"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Lv4" type="Node2D" unique_id=916896402]
+
+[node name="Orig" type="Sprite2D" parent="." unique_id=972028210]
+position = Vector2(-2, -5)
+texture = ExtResource("1_gj2ak")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1452878701]
+zoom = Vector2(2, 2)
+
+[node name="Osvaldo" parent="." unique_id=686732262 instance=ExtResource("2_6s3xt")]
+position = Vector2(-140, 1)
+
+[node name="PlatformAnimatable" type="AnimatableBody2D" parent="." unique_id=1061013519]
+position = Vector2(-24, 25)
+scale = Vector2(2.915, 1)
+
+[node name="Sprite" type="Sprite2D" parent="PlatformAnimatable" unique_id=567775067]
+texture = ExtResource("3_ws6cb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformAnimatable" unique_id=470388562]
+position = Vector2(-0.17152691, 0)
+shape = SubResource("RectangleShape2D_7j5g0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlatformAnimatable" unique_id=1804191398]
+libraries/ = SubResource("AnimationLibrary_3fifi")
+autoplay = &"move"
+playback_auto_capture = false
+
+[node name="PlatformAnimatable2" type="AnimatableBody2D" parent="." unique_id=1140713353]
+position = Vector2(-24, 25)
+scale = Vector2(2.915, 1)
+
+[node name="Sprite" type="Sprite2D" parent="PlatformAnimatable2" unique_id=792225582]
+texture = ExtResource("3_ws6cb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformAnimatable2" unique_id=749396349]
+position = Vector2(-0.17152691, -0.5)
+shape = SubResource("RectangleShape2D_7j5g0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlatformAnimatable2" unique_id=1687245694]
+libraries/ = SubResource("AnimationLibrary_3fifi")
+autoplay = &"move2"
+playback_auto_capture = false
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1394119946]
+tile_map_data = PackedByteArray("AAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAD3/wEAAgAAAAAAAAD2/wEAAgAAAAAAAAD1/wEAAgAAAAAAAAD0/wEAAgAAAAAAAAAHAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAALAAEAAgAAAAAAAAD4/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD5/wIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_wq61u")
+
+[node name="Start" type="Sprite2D" parent="." unique_id=1941458266]
+position = Vector2(-152, -11)
+texture = ExtResource("6_isg25")
+
+[node name="Finish" parent="." unique_id=739381824 instance=ExtResource("7_0ycn5")]
+position = Vector2(194, -14)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=328323370]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1863242513 node_paths=PackedStringArray("swirl_anchor")]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_lel61")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_u5jnn")
+swirl_anchor = NodePath("../../SwirlAnchor")
+
+[node name="SwirlAnchor" type="Marker2D" parent="." unique_id=1076555418]
+position = Vector2(-65.11, 10)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SwirlAnchor" unique_id=471584897]
+libraries/ = SubResource("AnimationLibrary_ws6cb")
+autoplay = &"move"
+
+[node name="Label" type="Label" parent="." unique_id=1398297358]
+offset_left = -266.0
+offset_top = 41.0
+offset_right = -119.0
+offset_bottom = 64.0
+text = "Ten cuidado"
+label_settings = SubResource("LabelSettings_pue4x")
+
+[node name="Label2" type="Label" parent="." unique_id=37397710]
+offset_left = -266.0
+offset_top = 69.0
+offset_right = -115.0
+offset_bottom = 92.0
+text = "Puedes saltar"
+label_settings = SubResource("LabelSettings_pue4x")
+
+[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("10_suy7t")]
+
+[node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("11_ypvu2")]
+position = Vector2(94, 130)
+
+[node name="GameManager" type="Node" parent="." unique_id=578313286]
+unique_name_in_owner = true
+script = ExtResource("12_uypr4")
+next_level = "res://scene/Levels/lvl5.tscn"
+
+[connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
+
+[editable path="Finish"]
