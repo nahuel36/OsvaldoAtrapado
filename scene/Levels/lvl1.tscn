@@ -409,3 +409,17 @@ swirl_anchor = NodePath("../../SwirlAnchor")
 
 [node name="SwirlAnchor" type="Marker2D" parent="." unique_id=1076555418]
 position = Vector2(0, 10)
+
+[node name="Label" type="Label" parent="." unique_id=1398297358]
+offset_left = -266.0
+offset_top = 41.0
+offset_right = -119.0
+offset_bottom = 64.0
+text = "Bienvenido a Lab36"
+
+[node name="Label2" type="Label" parent="." unique_id=37397710]
+offset_left = -266.0
+offset_top = 69.0
+offset_right = -115.0
+offset_bottom = 92.0
+text = "Muevete hacia la meta"
