@@ -1,35 +1,28 @@
-
 shader_type canvas_item;
 
-uniform sampler2D screen_texture : hint_screen_texture, repeat_disable;
+uniform sampler2D portal_noise_texture: repeat_enable;
+uniform float speed = 0.3;
+uniform float power_stregth : hint_range(0.0, 5.0, 0.1) = 0.3;
+uniform vec3 portal_dark_color : source_color = vec3(0.15, 0.0, 0.3);
+uniform vec3 portal_bright_color : source_color = vec3(0.3, 0.9, 1.0);
+uniform float twist_strength: hint_range(-10.0, 10.0, 0.1) = 3.0;
+uniform float rim_color_stregth = 2.0;
+uniform vec3 rim_color_source: source_color;
 
-uniform vec2 swirl_center = vec2(0.5, 0.5);
-uniform float swirl_radius : hint_range(0.05, 1.0) = 0.5;
-uniform float twist_strength : hint_range(-20.0, 20.0) = 8.0;
-uniform float effect_amount : hint_range(0.0, 1.0) = 1.0;
 
 void fragment() {
-    // Coordenadas de pantalla relativas al centro del remolino.
-    vec2 centered_uv = SCREEN_UV - swirl_center;
-
-    float dist = length(centered_uv);
-    float angle = atan(centered_uv.y, centered_uv.x);
-
-    // El giro disminuye progresivamente hacia el borde.
-    float radius_mask = 1.0 - smoothstep(
-        0.0, swirl_radius, dist
-    );
-
-    float twist = twist_strength
-        * radius_mask
-        * effect_amount;
-
-    // Volvemos a calcular las coordenadas giradas.
-    float distorted_angle = angle + twist;
-
-    vec2 distorted_uv = swirl_center
-        + vec2(cos(distorted_angle), sin(distorted_angle)) * dist;
-
-    // Leemos la escena con las coordenadas deformadas.
-    COLOR = texture(screen_texture, distorted_uv);
+	vec2 centered_uv = UV - 0.5;
+	float distance_from_centered_uv = length(centered_uv);
+	float angle_around_center = atan(centered_uv.y, centered_uv.x);
+	float angle_remap = angle_around_center / PI * 0.5 + 0.5;
+	vec2 polar_uv = vec2(angle_remap + distance_from_centered_uv * twist_strength, distance_from_centered_uv);
+	float noise_value = texture(portal_noise_texture, vec2(polar_uv.x + TIME * speed, polar_uv.y + TIME * speed)).r;
+	float combine_effect = smoothstep(0.4, 0.6, pow(noise_value, power_stregth));
+	vec3 portal_color = mix(portal_dark_color, portal_bright_color, combine_effect);
+	float mask_circle = smoothstep(0.5, 0.65, 1.0 - distance_from_centered_uv);
+	float center_hole_mask = smoothstep(0.03, 0.1, distance_from_centered_uv);
+	float rim_rising = smoothstep(0.25, 0.5, distance_from_centered_uv);
+	float rim_falling = smoothstep(0.5, 0.25, distance_from_centered_uv);
+	float rim_mask = rim_rising * rim_falling;
+	COLOR = vec4(vec3(portal_color * center_hole_mask + rim_mask * rim_color_source * rim_color_stregth), mask_circle * noise_value);
 }
