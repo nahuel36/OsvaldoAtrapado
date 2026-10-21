@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bv7pnofyplk3v" path="res://assets/osvaldo/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="10_0skr8"]
 [ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://scene/twirl3.gdshader" id="11_26ln7"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="12_l1qk2"]
+[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="13_8q3du"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq61u"]
 size = Vector2(25, 30)
@@ -475,3 +476,5 @@ offset_right = -115.0
 offset_bottom = 92.0
 text = "Puedes saltar"
 label_settings = SubResource("LabelSettings_pue4x")
+
+[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("13_8q3du")]

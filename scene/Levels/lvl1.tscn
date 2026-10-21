@@ -13,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://scene/twirl3.gdshader" id="10_hguk5"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="11_ii5f3"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="13_genyd"]
+[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="14_lel61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq61u"]
 size = Vector2(25, 30)
@@ -419,5 +420,7 @@ text = "Muevete hacia la meta"
 unique_name_in_owner = true
 script = ExtResource("13_genyd")
 next_level = "res://scene/Levels/lvl2.tscn"
+
+[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("14_lel61")]
 
 [connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
