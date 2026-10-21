@@ -548,9 +548,10 @@ offset_bottom = 18.0
 text = "Space to jump."
 label_settings = SubResource("LabelSettings_xlg7c")
 
-[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("11_spjak")]
-
 [node name="SwirlAnchor" type="Marker2D" parent="." unique_id=1098925120]
+position = Vector2(0, 10)
+
+[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("11_spjak")]
 
 [connection signal="OnPointAdded" from="GameManager" to="Labels/LabelScore" method="_on_game_manager_on_point_added"]
 [connection signal="body_entered" from="Finish" to="GameManager" method="_on_finish_body_entered"]
