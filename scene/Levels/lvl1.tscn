@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://lporyvkcf7pa"]
 
 [ext_resource type="Texture2D" uid="uid://b7v82qsif15fo" path="res://assets/osvaldo/Osvaldo/Character Assets/idle-Sheet.png" id="1_6dgtr"]
+[ext_resource type="Texture2D" uid="uid://ceydprhp6rnsy" path="res://assets/osvaldo/Backgrounds/background 3/orig.png" id="1_ii5f3"]
 [ext_resource type="Script" uid="uid://h5s2rgr1k2fr" path="res://scripts/osvaldo.gd" id="1_y17ty"]
 [ext_resource type="Texture2D" uid="uid://cv7q7kt655idq" path="res://assets/osvaldo/Osvaldo/Character Assets/saltar-Sheet.png" id="2_rgrp3"]
 [ext_resource type="Texture2D" uid="uid://bp7fbsq7mgj37" path="res://assets/osvaldo/Osvaldo/Character Assets/walk-Sheet.png" id="3_y17ty"]
@@ -342,6 +343,10 @@ shader_parameter/rim_color_source = Color(0, 0, 0, 1)
 shader_parameter/rim_color_strength = 2.0
 
 [node name="Lvl1" type="Node2D" unique_id=916896402]
+
+[node name="Orig" type="Sprite2D" parent="." unique_id=972028210]
+position = Vector2(-2, -5)
+texture = ExtResource("1_ii5f3")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1452878701]
 zoom = Vector2(2, 2)
