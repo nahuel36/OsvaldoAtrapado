@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _on_scene_changed() -> void:
-	if get_tree().current_scene.name == "MainMenu":
+	if get_tree().current_scene.name == "MainMenu" ||   get_tree().current_scene.name == "Intro":
 		music.stop()
 		if not menumusic.playing:
 			menumusic.play()

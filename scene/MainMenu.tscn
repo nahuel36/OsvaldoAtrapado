@@ -34,10 +34,10 @@ flat = false
 expand_icon = true
 
 [node name="Label" type="Label" parent="." unique_id=627748133]
-offset_left = 140.0
-offset_top = 78.0
-offset_right = 943.0
-offset_bottom = 300.0
+offset_left = 251.0
+offset_top = 199.0
+offset_right = 1054.0
+offset_bottom = 421.0
 text = "Osvaldo atrapado"
 label_settings = SubResource("LabelSettings_lnxie")
 

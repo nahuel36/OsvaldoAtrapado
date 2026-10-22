@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://ch1wyp8stvdk1"]
+
+[ext_resource type="Script" uid="uid://bvor6n7e04r32" path="res://scene/intro.gd" id="1_jwgaq"]
+[ext_resource type="FontFile" uid="uid://d2p3hd24l14fi" path="res://assets/fonts/SuperRugged.ttf" id="1_uk60o"]
+[ext_resource type="Texture2D" uid="uid://d2pwpwyvjenlj" path="res://assets/osvaldo/Osvaldo/Emotes/Muerto.png" id="3_lc4ft"]
+
+[sub_resource type="Gradient" id="Gradient_lc4ft"]
+colors = PackedColorArray(0.30588236, 0.10980392, 0.05490196, 1, 0.2065543, 0.2065543, 0.20655426, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wq61u"]
+gradient = SubResource("Gradient_lc4ft")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wq61u"]
+font = ExtResource("1_uk60o")
+font_size = 79
+
+[sub_resource type="Animation" id="Animation_jwgaq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Secuestraron a Osvaldo"]
+}
+
+[sub_resource type="Animation" id="Animation_lc4ft"]
+resource_name = "new_animation"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0333333, 4.366667, 6.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Secuestraron a Osvaldo", "Los laboratorios de 
+Lab36 lo han capturado", "Se dice que están 
+experimentando 
+con agujeros negros", "Osvaldo esta atrapado 
+en una simulación. 
+Solo podrá liberarse pasando... 
+Todos los niveles!!!"]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(11.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"introEnded"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_873w0"]
+_data = {
+&"RESET": SubResource("Animation_jwgaq"),
+&"new_animation": SubResource("Animation_lc4ft")
+}
+
+[node name="Intro" type="Control" unique_id=1269916102]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 409.0
+offset_top = 376.0
+offset_right = 409.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwgaq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=99589262]
+position = Vector2(162.00003, -56)
+scale = Vector2(17.781252, 10.5)
+texture = SubResource("GradientTexture2D_wq61u")
+
+[node name="Label" type="Label" parent="." unique_id=1765435266]
+layout_mode = 0
+offset_left = -385.0
+offset_top = -361.0
+offset_right = 747.0
+offset_bottom = 267.0
+text = "Secuestraron a Osvaldo"
+label_settings = SubResource("LabelSettings_wq61u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=156416660]
+libraries/ = SubResource("AnimationLibrary_873w0")
+autoplay = &"new_animation"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1284346120]
+position = Vector2(-325, -294)
+scale = Vector2(0.5171875, 0.51718754)
+texture = ExtResource("3_lc4ft")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=456224522]
+position = Vector2(657, -294)
+scale = Vector2(0.5171875, 0.51718754)
+texture = ExtResource("3_lc4ft")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=181222422]
+position = Vector2(663, 194)
+scale = Vector2(0.5171875, 0.51718754)
+texture = ExtResource("3_lc4ft")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1636844862]
+position = Vector2(-323, 183)
+scale = Vector2(0.5171875, 0.51718754)
+texture = ExtResource("3_lc4ft")
