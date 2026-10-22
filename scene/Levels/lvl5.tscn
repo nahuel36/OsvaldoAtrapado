@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://di3qa7ucg87ut"]
 
-[ext_resource type="Texture2D" uid="uid://bt314i6ifcjda" path="res://assets/osvaldo/Backgrounds/background 1/orig.png" id="1_vnwqd"]
+[ext_resource type="Texture2D" uid="uid://ceydprhp6rnsy" path="res://assets/osvaldo/Backgrounds/background 3/orig.png" id="1_vnwqd"]
 [ext_resource type="PackedScene" uid="uid://cf2j5wr0s1aja" path="res://scene/osvaldo.tscn" id="2_g7vtk"]
 [ext_resource type="Texture2D" uid="uid://bsq3hecmut107" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk1.png" id="3_7ahcx"]
 [ext_resource type="Texture2D" uid="uid://dw52qtrbsg8ly" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk2.png" id="4_uu2xp"]
