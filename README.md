@@ -10,3 +10,6 @@ https://opengameart.org/content/laboratory-x11
 
 https://www.fontspace.com/super-rugged-font-f111970
 
+https://brackeysgames.itch.io/brackeys-platformer-bundle
+
+gracias a Buenos Aires Game Devs por los assets también
