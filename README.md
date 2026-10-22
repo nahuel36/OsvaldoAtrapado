@@ -1,5 +1,7 @@
 # OsvaldoAtrapado
 
+Perdon por la desprolijidad, fue hecho en un dí­a y con poca experiencia en Godot
+
 assets usados
 
 https://opengameart.org/content/tesseract-outside-the-laboratory
