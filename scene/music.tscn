@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://dn1yl4q3u65n7"]
 
 [ext_resource type="AudioStream" uid="uid://dmjcddin6ysif" path="res://assets/music/labo.mp3" id="1_y257y"]
+[ext_resource type="Script" uid="uid://u5rv8xgk7q4t" path="res://scene/music.gd" id="2_ctbg1"]
+[ext_resource type="AudioStream" uid="uid://dc8stalqwwsuf" path="res://assets/music/menu.mp3" id="3_tdybj"]
 
 [node name="Music" type="AudioStreamPlayer2D" unique_id=1377516395]
 stream = ExtResource("1_y257y")
-autoplay = true
 bus = &"Music"
+script = ExtResource("2_ctbg1")
+
+[node name="menumusic" type="AudioStreamPlayer2D" parent="." unique_id=949303716]
+stream = ExtResource("3_tdybj")
