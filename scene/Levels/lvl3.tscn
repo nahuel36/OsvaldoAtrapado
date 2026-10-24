@@ -128,6 +128,8 @@ zoom = Vector2(2, 2)
 
 [node name="Osvaldo" parent="." unique_id=686732262 instance=ExtResource("2_6nmw5")]
 position = Vector2(-140, 1)
+JUMP_VELOCITY = -440.0
+FALL_VELOCITY_MULTIPLIER = 1.5
 
 [node name="PlatformAnimatable" type="AnimatableBody2D" parent="." unique_id=1061013519]
 position = Vector2(-24, 25)

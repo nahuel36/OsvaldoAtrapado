@@ -211,6 +211,8 @@ animations = [{
 [node name="Osvaldo" type="CharacterBody2D" unique_id=686732262]
 collision_layer = 2
 script = ExtResource("1_im0ci")
+JUMP_VELOCITY = -440.0
+FALL_VELOCITY_MULTIPLIER = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=655542551]
 position = Vector2(1, 1)
