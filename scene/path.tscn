@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://be6yvxycp8itv"]
+
+[ext_resource type="Texture2D" uid="uid://cmfey34rjwvvb" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk3.png" id="1_o6210"]
+[ext_resource type="Script" uid="uid://bvv4mo64k0my8" path="res://scripts/path_follow_2d.gd" id="1_r4rvf"]
+[ext_resource type="Curve2D" uid="uid://cqyaqwa1bipqm" path="res://curves/new_curve_2d.tres" id="1_s7mje"]
+
+[node name="Node2D" type="Node2D" unique_id=812998721]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1422486182]
+offset = Vector2(52.345, 0)
+zoom = Vector2(9.345, 9.345)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1727159538]
+rotation = 1.1745105
+scale = Vector2(0.422, 0.422)
+texture = ExtResource("1_o6210")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1089002519]
+curve = ExtResource("1_s7mje")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1396559253 node_paths=PackedStringArray("objectToMove")]
+rotation = 1.1745105
+scale = Vector2(0.6666667, 0.6666667)
+loop = false
+script = ExtResource("1_r4rvf")
+objectToMove = NodePath("../../Sprite2D")

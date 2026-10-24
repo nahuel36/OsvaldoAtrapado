@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="OsvaldoAtrapado"
-run/main_scene="uid://bjwvsfd2lxpqo"
+run/main_scene="uid://be6yvxycp8itv"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
