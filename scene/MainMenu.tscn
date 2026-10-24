@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjwvsfd2lxpqo"]
 
-[ext_resource type="Script" uid="uid://c37phcgeoxj76" path="res://scene/main_menu.gd" id="1_lnxie"]
+[ext_resource type="Script" uid="uid://c37phcgeoxj76" path="res://scripts/main_menu.gd" id="1_lnxie"]
 [ext_resource type="Texture2D" uid="uid://dldvyxxdd7xed" path="res://assets/osvaldo/ui/UIBundleFree/FreeHorrorUi.png" id="2_lnxie"]
 [ext_resource type="FontFile" uid="uid://d2p3hd24l14fi" path="res://assets/fonts/SuperRugged.ttf" id="3_sks6p"]
 

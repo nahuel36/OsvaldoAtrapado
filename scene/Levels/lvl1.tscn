@@ -1,17 +1,17 @@
 [gd_scene format=4 uid="uid://lporyvkcf7pa"]
 
 [ext_resource type="Texture2D" uid="uid://ceydprhp6rnsy" path="res://assets/osvaldo/Backgrounds/background 3/orig.png" id="1_ii5f3"]
-[ext_resource type="PackedScene" uid="uid://cf2j5wr0s1aja" path="res://scene/osvaldo.tscn" id="2_ii5f3"]
+[ext_resource type="PackedScene" uid="uid://cf2j5wr0s1aja" path="res://scene/GameElements/osvaldo.tscn" id="2_ii5f3"]
 [ext_resource type="Texture2D" uid="uid://bsq3hecmut107" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk1.png" id="4_rgrp3"]
 [ext_resource type="Texture2D" uid="uid://dw52qtrbsg8ly" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk2.png" id="5_t7r1y"]
-[ext_resource type="PackedScene" uid="uid://kewycb1vgokh" path="res://scene/finish.tscn" id="7_genyd"]
+[ext_resource type="PackedScene" uid="uid://kewycb1vgokh" path="res://scene/GameElements/finish.tscn" id="7_genyd"]
 [ext_resource type="Texture2D" uid="uid://58efqsximuuw" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk8.png" id="7_iai5y"]
 [ext_resource type="Texture2D" uid="uid://deo0nlvjvrws4" path="res://assets/osvaldo/Items/Checkpoints/Start/Start (Idle).png" id="8_o3ti7"]
-[ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://scene/twirl3.gdshader" id="10_hguk5"]
+[ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://shaders/twirl3.gdshader" id="10_hguk5"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="11_ii5f3"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="13_genyd"]
-[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="14_lel61"]
-[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="15_t4olh"]
+[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/TouchButtons.tscn" id="14_lel61"]
+[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/GameElements/kill_zone.tscn" id="15_t4olh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7r1y"]
 texture = ExtResource("4_rgrp3")
@@ -66,8 +66,6 @@ zoom = Vector2(2, 2)
 
 [node name="Osvaldo" parent="." unique_id=686732262 instance=ExtResource("2_ii5f3")]
 position = Vector2(-142, -1)
-JUMP_VELOCITY = -440.0
-FALL_VELOCITY_MULTIPLIER = 1.5
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1394119946]
 tile_map_data = PackedByteArray("AAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAD6/wEAAgAAAAAAAAD5/wEAAgAAAAAAAAD4/wEAAgAAAAAAAAD3/wEAAgAAAAAAAAD2/wEAAgAAAAAAAAD1/wEAAgAAAAAAAAD0/wEAAgAAAAAAAAAHAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAALAAEAAgAAAAAAAAA=")

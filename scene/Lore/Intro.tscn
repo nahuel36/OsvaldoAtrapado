@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ch1wyp8stvdk1"]
 
-[ext_resource type="Script" uid="uid://bvor6n7e04r32" path="res://scene/intro.gd" id="1_jwgaq"]
+[ext_resource type="Script" uid="uid://bvor6n7e04r32" path="res://scripts/intro.gd" id="1_jwgaq"]
 [ext_resource type="FontFile" uid="uid://d2p3hd24l14fi" path="res://assets/fonts/SuperRugged.ttf" id="1_uk60o"]
 [ext_resource type="Texture2D" uid="uid://d2pwpwyvjenlj" path="res://assets/osvaldo/Osvaldo/Emotes/Muerto.png" id="3_lc4ft"]
 

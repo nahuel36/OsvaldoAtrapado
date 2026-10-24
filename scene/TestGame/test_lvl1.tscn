@@ -1,17 +1,44 @@
-[gd_scene format=4 uid="uid://dd2irhxq2lbh6"]
+[gd_scene format=4 uid="uid://c6bpwcv75jjdp"]
 
-[ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="1_5swox"]
-[ext_resource type="PackedScene" uid="uid://dp07sl4gefcbx" path="res://scene/player.tscn" id="2_ec1m7"]
-[ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="3_i5gr8"]
-[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="4_y42ff"]
-[ext_resource type="PackedScene" uid="uid://cb4dr60j2gj1d" path="res://scene/platform.tscn" id="5_yjy43"]
-[ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://scene/slime.tscn" id="6_hp05n"]
-[ext_resource type="PackedScene" uid="uid://dtkeiebeowxdh" path="res://scene/coin.tscn" id="7_65bpy"]
-[ext_resource type="PackedScene" uid="uid://dt5hqqlr0he1t" path="res://scene/label_score.tscn" id="8_gdrq7"]
-[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="10_xlqr7"]
+[ext_resource type="PackedScene" uid="uid://dp07sl4gefcbx" path="res://scene/TestGame/player.tscn" id="1_5kiuu"]
+[ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://shaders/twirl3.gdshader" id="1_6fbij"]
+[ext_resource type="PackedScene" uid="uid://cb4dr60j2gj1d" path="res://scene/TestGame/platform.tscn" id="1_33cqm"]
+[ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="1_ll5lq"]
+[ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="2_dbls1"]
+[ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="2_uxdda"]
+[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/GameElements/kill_zone.tscn" id="4_p1ry8"]
+[ext_resource type="PackedScene" uid="uid://dtkeiebeowxdh" path="res://scene/TestGame/coin.tscn" id="4_xwcet"]
+[ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://scene/TestGame/slime.tscn" id="6_xlg7c"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="8_17rxn"]
+[ext_resource type="PackedScene" uid="uid://dt5hqqlr0he1t" path="res://scene/TestGame/label_score.tscn" id="8_b74c3"]
+[ext_resource type="PackedScene" uid="uid://dvqp0cjcs8ddo" path="res://scene/TestGame/label_version.tscn" id="10_b74c3"]
+[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/TouchButtons.tscn" id="11_spjak"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6fbij"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nk6ix"]
+noise = SubResource("FastNoiseLite_6fbij")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_spjak"]
+shader = ExtResource("1_6fbij")
+shader_parameter/portal_noise_texture = SubResource("NoiseTexture2D_nk6ix")
+shader_parameter/swirl_center = Vector2(0.75, 0.5)
+shader_parameter/viewport_size = Vector2(1152, 648)
+shader_parameter/swirl_radius = 200.0
+shader_parameter/twist_strength = 3.884000896989999
+shader_parameter/effect_amount = 0.6670000316825
+shader_parameter/speed = 0.3
+shader_parameter/power_strength = 1.16000005184012
+shader_parameter/portal_dark_color = Color(0.6860666, 0.21516854, 0.54347897, 1)
+shader_parameter/portal_bright_color = Color(0, 0, 0, 1)
+shader_parameter/rim_color_source = Color(0, 0, 0, 1)
+shader_parameter/rim_color_strength = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq61u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ry8"]
-texture = ExtResource("3_i5gr8")
+texture = ExtResource("2_dbls1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -144,7 +171,7 @@ texture = ExtResource("3_i5gr8")
 sources/0 = SubResource("TileSetAtlasSource_p1ry8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33cqm"]
-texture = ExtResource("3_i5gr8")
+texture = ExtResource("2_dbls1")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -344,7 +371,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.97),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(79, -38.999992), Vector2(12, -142)]
+"values": [Vector2(69.99999, -102.99999), Vector2(12, -142)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_81276"]
@@ -382,7 +409,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-20, -20), Vector2(130, -20)]
+"values": [Vector2(240, 4), Vector2(320, 4)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p1ry8"]
@@ -391,15 +418,39 @@ _data = {
 &"platform_move": SubResource("Animation_xwcet")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_xlg7c"]
+font = ExtResource("8_17rxn")
+font_size = 8
+
 [node name="Game" type="Node2D" unique_id=1650123467]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1313381975]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1817384498 node_paths=PackedStringArray("swirl_anchor")]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_spjak")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_uxdda")
+swirl_anchor = NodePath("../../SwirlAnchor")
 
 [node name="GameManager" type="Node" parent="." unique_id=1040694548]
 unique_name_in_owner = true
-script = ExtResource("1_5swox")
-level_score = 9
+script = ExtResource("1_ll5lq")
 
-[node name="Player" parent="." unique_id=48285453 instance=ExtResource("2_ec1m7")]
-position = Vector2(40, 1)
+[node name="Finish" type="Area2D" parent="." unique_id=1690390071]
+position = Vector2(388, -15)
+scale = Vector2(3.046875, 1.6015625)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=1918819954]
+position = Vector2(-6.892308, -0.62439024)
+shape = SubResource("RectangleShape2D_wq61u")
+
+[node name="Player" parent="." unique_id=48285453 instance=ExtResource("1_5kiuu")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1723020286]
 position = Vector2(5, 3)
@@ -420,10 +471,10 @@ tile_set = SubResource("TileSet_7j5g0")
 
 [node name="Topground" type="TileMapLayer" parent="Tiles" unique_id=266141359]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAADAAEAAQAGAAAAAAAEAAEAAQAGAAAAAAAIAAEAAQAGAAAAAAAJAAEAAQAGAAAAAAAIAAIAAQAGAAEAAAAJAAIAAQAGAAEAAAADAAIAAQAGAAEAAAAEAAIAAQAGAAEAAAANAAAAAQACAAAAAAAMAAEAAQADAAAAAAALAAEAAQACAAAAAAAMAAIAAQADAAAAAAANAAIAAQADAAAAAAANAAEAAQADAAAAAAD8/wEAAQAJAAAAAAD9/wEAAQAKAAAAAAD+/wEAAQALAAAAAAAFAAEAAQAJAAAAAAAGAAEAAQAKAAAAAAAHAAEAAQALAAAAAAD//wIAAQAAAAEAAAAAAAIAAQABAAEAAAD//wMAAQAAAAEAAAAAAAMAAQAAAAEAAAABAAEAAQAAAAEAAAACAAEAAQABAAEAAAACAAIAAQAAAAEAAAABAAIAAQAAAAEAAAABAAMAAQABAAEAAAACAAMAAQAAAAEAAAD7/wIAAQAAAAEAAAD6/wIAAQABAAEAAAD6/wMAAQAAAAEAAAD7/wMAAQAAAAEAAAD6/wEAAQAAAAAAAAD7/wEAAQAAAAAAAAADAAMAAQAIAAEAAAAEAAMAAQAIAAEAAAAIAAMAAQAIAAEAAAAJAAMAAQAIAAEAAAD9//X/AQACAAAAAAD8//X/AQACAAAAAAD7//X/AQACAAEAAAD7//b/AQACAAEAAAD8//b/AQACAAEAAAD9//b/AQACAAEAAAD8//f/AQACAAEAAAD6//X/AQACAAEAAAD5//T/AQACAAEAAAD5//P/AQACAAEAAAD4//P/AQACAAEAAAD+//X/AQACAAAAAAD3//P/AQACAAAAAAD2//P/AQACAAAAAAD4//T/AQADAAEAAAD3//T/AQACAAEAAAD2//T/AQACAAEAAAD2//X/AQACAAEAAAD3//X/AQADAAEAAAD4//X/AQADAAEAAAD5//X/AQACAAEAAAD6//T/AQACAAEAAAD2//L/AQACAAEAAAD3//L/AQACAAEAAAD2//H/AQACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAEAAQAGAAAAAAAEAAEAAQAGAAAAAAAEAP7/AQAAAAAAAAAFAP7/AQAAAAAAAAAGAP7/AQAAAAAAAAAGAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAHAPv/AQAAAAAAAAAHAPz/AQAAAAAAAAAHAP3/AQAAAAAAAAAHAP7/AQAAAAAAAAAJAP3/AQAAAAAAAAAJAP7/AQAAAAAAAAAIAP7/AQAAAAAAAAAIAP3/AQAAAAAAAAAIAAEAAQAGAAAAAAAJAAEAAQAGAAAAAAAIAAIAAQAGAAEAAAAJAAIAAQAGAAEAAAADAAIAAQAGAAEAAAAEAAIAAQAGAAEAAAANAAAAAQACAAAAAAAMAAAAAQACAAAAAAAMAAEAAQADAAAAAAALAAEAAQACAAAAAAAMAAIAAQADAAAAAAANAAIAAQADAAAAAAANAAEAAQADAAAAAAANAP//AQAAAAUAAAANAP7/AQAAAAQAAAANAP3/AQAAAAQAAAANAPz/AQAAAAMAAAD8/wEAAQAJAAAAAAD9/wEAAQAKAAAAAAD+/wEAAQALAAAAAAAFAAEAAQAJAAAAAAAGAAEAAQAKAAAAAAAHAAEAAQALAAAAAAD//wIAAQAAAAEAAAAAAAIAAQABAAEAAAD//wMAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAQAAQAAAAEAAAD//wQAAQAAAAEAAAABAAEAAQAAAAEAAAACAAEAAQABAAEAAAACAAIAAQAAAAEAAAABAAIAAQAAAAEAAAABAAMAAQABAAEAAAACAAMAAQAAAAEAAAD7/wIAAQAAAAEAAAD6/wIAAQABAAEAAAD5/wIAAQAAAAEAAAD6/wMAAQAAAAEAAAD5/wMAAQAAAAEAAAD7/wMAAQAAAAEAAAD5/wEAAQABAAEAAAD6/wEAAQAAAAAAAAD7/wEAAQAAAAAAAAD5/wAAAQAAAAAAAAADAAMAAQAIAAEAAAAEAAMAAQAIAAEAAAAIAAMAAQAIAAEAAAAJAAMAAQAIAAEAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAXAAAAAQAAAAAAAAAWAAEAAQABAAAAAAAXAAEAAQAAAAEAAAAXAAIAAQABAAEAAAAWAAIAAQAAAAEAAAAXAAMAAQAAAAEAAAAYAAEAAQAAAAEAAAAYAAIAAQABAAAAAAAYAAMAAQAAAAEAAAAVAAEAAQAAAAEAAAAYAAQAAQAAAAEAAAAYAAAAAQAAAAAAAAD9//X/AQACAAAAAAD8//X/AQACAAAAAAD7//T/AQACAAAAAAD6//P/AQACAAAAAAD5//L/AQACAAAAAAD7//X/AQACAAEAAAD7//b/AQACAAEAAAD8//b/AQACAAEAAAD9//b/AQACAAEAAAD8//f/AQACAAEAAAD6//X/AQACAAEAAAD6//T/AQACAAEAAAD5//T/AQACAAEAAAD5//P/AQACAAEAAAD4//P/AQACAAEAAAD4//L/AQACAAEAAAD4//H/AQACAAAAAAA=")
 tile_set = SubResource("TileSet_wq61u")
 
-[node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("4_y42ff")]
+[node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("4_p1ry8")]
 position = Vector2(94, 77)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZoneBottom" unique_id=187668191]
@@ -431,7 +482,7 @@ shape = SubResource("WorldBoundaryShape2D_7j5g0")
 
 [node name="Plafform" type="Node2D" parent="." unique_id=1821156558]
 
-[node name="Platform" parent="Plafform" unique_id=932272170 instance=ExtResource("5_yjy43")]
+[node name="Platform" parent="Plafform" unique_id=932272170 instance=ExtResource("1_33cqm")]
 position = Vector2(69.99999, -102.99999)
 rotation = 0.59166664
 
@@ -439,7 +490,7 @@ rotation = 0.59166664
 libraries/ = SubResource("AnimationLibrary_81276")
 autoplay = &"platformdiagmove"
 
-[node name="Platform2" parent="Plafform" unique_id=1239637673 instance=ExtResource("5_yjy43")]
+[node name="Platform2" parent="Plafform" unique_id=1239637673 instance=ExtResource("1_33cqm")]
 position = Vector2(240, 4)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Plafform/Platform2" unique_id=2119735771]
@@ -448,48 +499,59 @@ autoplay = &"platform_move"
 
 [node name="Enemys" type="Node" parent="." unique_id=1197516894]
 
-[node name="Slime" parent="Enemys" unique_id=969224363 instance=ExtResource("6_hp05n")]
-position = Vector2(64, 16)
-initialDir = 1
-
-[node name="Slime2" parent="Enemys" unique_id=370439547 instance=ExtResource("6_hp05n")]
-position = Vector2(-60, -183)
+[node name="Slime" parent="Enemys" unique_id=969224363 instance=ExtResource("6_xlg7c")]
+position = Vector2(63, 9)
 initialDir = 1
 
 [node name="Coins" type="Node" parent="." unique_id=849756700]
 
-[node name="Coin" parent="Coins" unique_id=1753361655 instance=ExtResource("7_65bpy")]
-position = Vector2(8, -13)
+[node name="Coin" parent="Coins" unique_id=1753361655 instance=ExtResource("4_xwcet")]
+position = Vector2(-120, -41)
 
-[node name="Coin2" parent="Coins" unique_id=105059749 instance=ExtResource("7_65bpy")]
-position = Vector2(114, -10)
+[node name="Coin2" parent="Coins" unique_id=105059749 instance=ExtResource("4_xwcet")]
+position = Vector2(155, 1)
 
-[node name="Coin5" parent="Coins" unique_id=765569846 instance=ExtResource("7_65bpy")]
-position = Vector2(234, -39)
+[node name="Coin5" parent="Coins" unique_id=765569846 instance=ExtResource("4_xwcet")]
+position = Vector2(279, -32)
 
-[node name="Coin6" parent="Coins" unique_id=419340704 instance=ExtResource("7_65bpy")]
+[node name="Coin6" parent="Coins" unique_id=419340704 instance=ExtResource("4_xwcet")]
 position = Vector2(401, -43)
 
-[node name="Coin7" parent="Coins" unique_id=2018462166 instance=ExtResource("7_65bpy")]
+[node name="Coin7" parent="Coins" unique_id=2018462166 instance=ExtResource("4_xwcet")]
 position = Vector2(53, -178)
 
-[node name="Coin8" parent="Coins" unique_id=771301 instance=ExtResource("7_65bpy")]
+[node name="Coin8" parent="Coins" unique_id=771301 instance=ExtResource("4_xwcet")]
 position = Vector2(-37, -221)
 
-[node name="Coin9" parent="Coins" unique_id=799667983 instance=ExtResource("7_65bpy")]
+[node name="Coin9" parent="Coins" unique_id=799667983 instance=ExtResource("4_xwcet")]
 position = Vector2(-116, -292)
 
-[node name="Coin3" parent="Coins" unique_id=893388892 instance=ExtResource("7_65bpy")]
-position = Vector2(-90, -237)
+[node name="Coin3" parent="Coins" unique_id=893388892 instance=ExtResource("4_xwcet")]
+position = Vector2(141, -138)
 
-[node name="Coin4" parent="Coins" unique_id=233017668 instance=ExtResource("7_65bpy")]
+[node name="Coin4" parent="Coins" unique_id=233017668 instance=ExtResource("4_xwcet")]
 position = Vector2(22, -77)
 
 [node name="Labels" type="Node" parent="." unique_id=811285895]
 
-[node name="LabelScore" parent="Labels" unique_id=2101233611 instance=ExtResource("8_gdrq7")]
-position = Vector2(-18, -298)
+[node name="LabelScore" parent="Labels" unique_id=485059335 instance=ExtResource("8_b74c3")]
+position = Vector2(-17, -297)
 
-[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("10_xlqr7")]
+[node name="LabelVersion" parent="Labels" unique_id=436346196 instance=ExtResource("10_b74c3")]
+position = Vector2(-111, 79)
+
+[node name="LabelJump" type="Label" parent="Labels" unique_id=2040357271]
+offset_left = -78.0
+offset_top = -35.0
+offset_right = 57.0
+offset_bottom = 18.0
+text = "Space to jump."
+label_settings = SubResource("LabelSettings_xlg7c")
+
+[node name="SwirlAnchor" type="Marker2D" parent="." unique_id=1098925120]
+position = Vector2(0, 10)
+
+[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("11_spjak")]
 
 [connection signal="OnPointAdded" from="GameManager" to="Labels/LabelScore" method="_on_game_manager_on_point_added"]
+[connection signal="body_entered" from="Finish" to="GameManager" method="_on_finish_body_entered"]

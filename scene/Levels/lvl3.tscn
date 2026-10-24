@@ -1,16 +1,16 @@
 [gd_scene format=4 uid="uid://dvhcymeg4o368"]
 
 [ext_resource type="Texture2D" uid="uid://djijaj6vq7wnd" path="res://assets/osvaldo/Backgrounds/background 2/orig.png" id="1_0e7dk"]
-[ext_resource type="PackedScene" uid="uid://cf2j5wr0s1aja" path="res://scene/osvaldo.tscn" id="2_6nmw5"]
+[ext_resource type="PackedScene" uid="uid://cf2j5wr0s1aja" path="res://scene/GameElements/osvaldo.tscn" id="2_6nmw5"]
 [ext_resource type="Texture2D" uid="uid://bsq3hecmut107" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk1.png" id="3_iiury"]
 [ext_resource type="Texture2D" uid="uid://dw52qtrbsg8ly" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk2.png" id="4_vx5bk"]
 [ext_resource type="Texture2D" uid="uid://58efqsximuuw" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk8.png" id="5_vgh3k"]
 [ext_resource type="Texture2D" uid="uid://deo0nlvjvrws4" path="res://assets/osvaldo/Items/Checkpoints/Start/Start (Idle).png" id="6_htobg"]
-[ext_resource type="PackedScene" uid="uid://kewycb1vgokh" path="res://scene/finish.tscn" id="7_6uydm"]
-[ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://scene/twirl3.gdshader" id="8_7arsv"]
+[ext_resource type="PackedScene" uid="uid://kewycb1vgokh" path="res://scene/GameElements/finish.tscn" id="7_6uydm"]
+[ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://shaders/twirl3.gdshader" id="8_7arsv"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="9_s1o3y"]
-[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="10_s7oym"]
-[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="11_th8s4"]
+[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/TouchButtons.tscn" id="10_s7oym"]
+[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/GameElements/kill_zone.tscn" id="11_th8s4"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="12_2p6kc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j5g0"]
@@ -128,8 +128,6 @@ zoom = Vector2(2, 2)
 
 [node name="Osvaldo" parent="." unique_id=686732262 instance=ExtResource("2_6nmw5")]
 position = Vector2(-140, 1)
-JUMP_VELOCITY = -440.0
-FALL_VELOCITY_MULTIPLIER = 1.5
 
 [node name="PlatformAnimatable" type="AnimatableBody2D" parent="." unique_id=1061013519]
 position = Vector2(-24, 25)

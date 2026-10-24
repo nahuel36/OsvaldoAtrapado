@@ -1,16 +1,16 @@
 [gd_scene format=4 uid="uid://di3qa7ucg87ut"]
 
 [ext_resource type="Texture2D" uid="uid://ceydprhp6rnsy" path="res://assets/osvaldo/Backgrounds/background 3/orig.png" id="1_vnwqd"]
-[ext_resource type="PackedScene" uid="uid://cf2j5wr0s1aja" path="res://scene/osvaldo.tscn" id="2_g7vtk"]
+[ext_resource type="PackedScene" uid="uid://cf2j5wr0s1aja" path="res://scene/GameElements/osvaldo.tscn" id="2_g7vtk"]
 [ext_resource type="Texture2D" uid="uid://bsq3hecmut107" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk1.png" id="3_7ahcx"]
 [ext_resource type="Texture2D" uid="uid://dw52qtrbsg8ly" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk2.png" id="4_uu2xp"]
 [ext_resource type="Texture2D" uid="uid://58efqsximuuw" path="res://assets/osvaldo/World Assets/Industrial/IndustrialPunk8.png" id="5_vj6d0"]
 [ext_resource type="Texture2D" uid="uid://deo0nlvjvrws4" path="res://assets/osvaldo/Items/Checkpoints/Start/Start (Idle).png" id="6_55sw2"]
-[ext_resource type="PackedScene" uid="uid://kewycb1vgokh" path="res://scene/finish.tscn" id="7_x4f01"]
-[ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://scene/twirl3.gdshader" id="8_odw7g"]
+[ext_resource type="PackedScene" uid="uid://kewycb1vgokh" path="res://scene/GameElements/finish.tscn" id="7_x4f01"]
+[ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://shaders/twirl3.gdshader" id="8_odw7g"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="9_muk85"]
-[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/canvas_layer.tscn" id="10_lc8sm"]
-[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/kill_zone.tscn" id="11_bc2ho"]
+[ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/TouchButtons.tscn" id="10_lc8sm"]
+[ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/GameElements/kill_zone.tscn" id="11_bc2ho"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="12_6cmvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j5g0"]
@@ -165,8 +165,6 @@ zoom = Vector2(2, 2)
 
 [node name="Osvaldo" parent="." unique_id=686732262 instance=ExtResource("2_g7vtk")]
 position = Vector2(-140, 1)
-JUMP_VELOCITY = -440.0
-FALL_VELOCITY_MULTIPLIER = 1.5
 
 [node name="PlatformAnimatable" type="AnimatableBody2D" parent="." unique_id=1061013519]
 position = Vector2(-24, 25)
@@ -257,7 +255,7 @@ position = Vector2(94, 130)
 [node name="GameManager" type="Node" parent="." unique_id=578313286]
 unique_name_in_owner = true
 script = ExtResource("12_6cmvp")
-next_level = "res://scene/Fin.tscn"
+next_level = "res://scene/Lore/End.tscn"
 
 [connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
 
