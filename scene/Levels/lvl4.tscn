@@ -131,6 +131,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_6s3xt"]
 resource_name = "move"
+length = 0.6666667
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -139,16 +140,16 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.96666664),
+"times": PackedFloat32Array(0, 0.6333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-65.11, 10), Vector2(12.015, 10)]
+"values": [Vector2(-36.69, 10), Vector2(12.015, 10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ws6cb"]
 _data = {
 &"RESET": SubResource("Animation_gj2ak"),
-&"move": SubResource("Animation_6s3xt")
+&"move3": SubResource("Animation_6s3xt")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_pue4x"]
@@ -229,7 +230,7 @@ position = Vector2(-65.11, 10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SwirlAnchor" unique_id=471584897]
 libraries/ = SubResource("AnimationLibrary_ws6cb")
-autoplay = &"move"
+autoplay = &"move3"
 
 [node name="Label" type="Label" parent="." unique_id=1398297358]
 offset_left = -266.0
