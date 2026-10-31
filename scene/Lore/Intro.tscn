@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bvor6n7e04r32" path="res://scripts/intro.gd" id="1_jwgaq"]
 [ext_resource type="FontFile" uid="uid://d2p3hd24l14fi" path="res://assets/fonts/SuperRugged.ttf" id="1_uk60o"]
 [ext_resource type="Texture2D" uid="uid://d2pwpwyvjenlj" path="res://assets/osvaldo/Osvaldo/Emotes/Muerto.png" id="3_lc4ft"]
+[ext_resource type="Texture2D" uid="uid://dldvyxxdd7xed" path="res://assets/osvaldo/ui/UIBundleFree/FreeHorrorUi.png" id="4_e2ul6"]
 
 [sub_resource type="Gradient" id="Gradient_lc4ft"]
 colors = PackedColorArray(0.30588236, 0.10980392, 0.05490196, 1, 0.2065543, 0.2065543, 0.20655426, 1)
@@ -71,6 +72,10 @@ _data = {
 &"new_animation": SubResource("Animation_lc4ft")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm14j"]
+atlas = ExtResource("4_e2ul6")
+region = Rect2(6, 202, 52, 15)
+
 [node name="Intro" type="Control" unique_id=1269916102]
 layout_mode = 3
 anchors_preset = 15
@@ -123,3 +128,15 @@ texture = ExtResource("3_lc4ft")
 position = Vector2(-323, 183)
 scale = Vector2(0.5171875, 0.51718754)
 texture = ExtResource("3_lc4ft")
+
+[node name="MenuButton" type="MenuButton" parent="." unique_id=1133933884]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 161.0
+offset_right = 275.0
+offset_bottom = 277.0
+icon = SubResource("AtlasTexture_hm14j")
+flat = false
+expand_icon = true
+
+[connection signal="button_down" from="MenuButton" to="." method="introEnded"]

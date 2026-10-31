@@ -6,9 +6,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func introEnded()-> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scene/Levels/lvl1.tscn")
