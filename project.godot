@@ -22,11 +22,16 @@ buses/default_bus_layout="uid://b8wr0hwoqop4v"
 [autoload]
 
 Music="*uid://dn1yl4q3u65n7"
+Persistent="*uid://cg08h8iqda6kk"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+Persist=""
 
 [input]
 

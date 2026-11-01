@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cg08h8iqda6kk"]
+
+[ext_resource type="Script" uid="uid://b4g11w757gru2" path="res://scripts/persist.gd" id="1_vg8wa"]
+
+[node name="Persist" type="Node" unique_id=1095241543 groups=["Persist"]]
+script = ExtResource("1_vg8wa")
