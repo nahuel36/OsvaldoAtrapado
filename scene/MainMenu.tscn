@@ -16,8 +16,17 @@ region = Rect2(6, 138, 52, 15)
 font = ExtResource("3_sks6p")
 font_size = 107
 
-[node name="MainMenu" type="Node2D" unique_id=652044206]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q16b"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wq61u"]
+font_size = 56
+
+[node name="MainMenu" type="Node2D" unique_id=652044206 node_paths=PackedStringArray("lvl_select_button", "lvl_select_panel", "lvls_buttons")]
 script = ExtResource("1_lnxie")
+lvl_select_button = NodePath("MenuButton2")
+lvl_select_panel = NodePath("Panel")
+lvls_buttons = NodePath("Panel/LevelsButtons")
 
 [node name="FreeHorrorUi" type="Sprite2D" parent="." unique_id=2128551402]
 position = Vector2(613.75, 333.00003)
@@ -33,6 +42,16 @@ icon = SubResource("AtlasTexture_1f4hp")
 flat = false
 expand_icon = true
 
+[node name="MenuButton2" type="MenuButton" parent="." unique_id=55773389]
+visible = false
+offset_left = 467.0
+offset_top = 518.0
+offset_right = 684.0
+offset_bottom = 611.0
+text = "LEVELS"
+flat = false
+expand_icon = true
+
 [node name="Label" type="Label" parent="." unique_id=627748133]
 offset_left = 251.0
 offset_top = 199.0
@@ -41,4 +60,89 @@ offset_bottom = 421.0
 text = "Osvaldo atrapado"
 label_settings = SubResource("LabelSettings_lnxie")
 
+[node name="Panel" type="Panel" parent="." unique_id=1519694241]
+visible = false
+offset_left = 121.0
+offset_top = 94.0
+offset_right = 1111.0
+offset_bottom = 607.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6q16b")
+
+[node name="Label" type="Label" parent="Panel" unique_id=89373626]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 30.0
+offset_right = 851.0
+offset_bottom = 396.0
+text = "SELECT LEVEL"
+label_settings = SubResource("LabelSettings_wq61u")
+
+[node name="LevelsButtons" type="Control" parent="Panel" unique_id=1962039250]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="MenuButton" parent="Panel/LevelsButtons" unique_id=493664954]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 160.0
+offset_right = 223.0
+offset_bottom = 220.0
+text = "1"
+flat = false
+
+[node name="MenuButton2" type="MenuButton" parent="Panel/LevelsButtons" unique_id=1219565717]
+visible = false
+layout_mode = 0
+offset_left = 242.0
+offset_top = 158.0
+offset_right = 297.0
+offset_bottom = 218.0
+text = "2"
+flat = false
+
+[node name="MenuButton3" type="MenuButton" parent="Panel/LevelsButtons" unique_id=783619513]
+visible = false
+layout_mode = 0
+offset_left = 317.0
+offset_top = 160.0
+offset_right = 372.0
+offset_bottom = 220.0
+text = "3"
+flat = false
+
+[node name="MenuButton4" type="MenuButton" parent="Panel/LevelsButtons" unique_id=1760859390]
+visible = false
+layout_mode = 0
+offset_left = 401.0
+offset_top = 162.0
+offset_right = 456.0
+offset_bottom = 222.0
+text = "4"
+flat = false
+
+[node name="MenuButton5" type="MenuButton" parent="Panel/LevelsButtons" unique_id=875862813]
+visible = false
+layout_mode = 0
+offset_left = 482.0
+offset_top = 162.0
+offset_right = 537.0
+offset_bottom = 222.0
+text = "5"
+flat = false
+
+[node name="Exit" type="MenuButton" parent="Panel" unique_id=648013183]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98100007
+anchor_right = 0.9990001
+anchor_bottom = 0.060000002
+offset_left = -0.19006348
+offset_right = -0.010070801
+offset_bottom = 0.21999931
+text = "X"
+
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MenuButton2" to="." method="showLevelSelectMenu"]
+[connection signal="pressed" from="Panel/Exit" to="." method="hideLevelSelectMenu"]
