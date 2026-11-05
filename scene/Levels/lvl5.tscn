@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/TouchButtons.tscn" id="10_lc8sm"]
 [ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/GameElements/kill_zone.tscn" id="11_bc2ho"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="12_6cmvp"]
+[ext_resource type="PackedScene" uid="uid://bgdeoydp3u6xp" path="res://scene/game_menu.tscn" id="13_g7vtk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j5g0"]
 size = Vector2(16.123499, 17)
@@ -255,7 +256,8 @@ position = Vector2(94, 130)
 [node name="GameManager" type="Node" parent="." unique_id=578313286]
 unique_name_in_owner = true
 script = ExtResource("12_6cmvp")
-next_level = "res://scene/Lore/End.tscn"
+
+[node name="GameMenu" parent="." unique_id=144385093 instance=ExtResource("13_g7vtk")]
 
 [connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
 

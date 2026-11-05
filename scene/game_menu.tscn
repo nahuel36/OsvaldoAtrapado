@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bgdeoydp3u6xp"]
+
+[ext_resource type="Texture2D" uid="uid://dldvyxxdd7xed" path="res://assets/osvaldo/ui/UIBundleFree/FreeHorrorUi.png" id="1_4m41d"]
+[ext_resource type="Script" uid="uid://bnb0qhdrk5wgq" path="res://scripts/game_menu.gd" id="1_vu5r2"]
+[ext_resource type="FontFile" uid="uid://d2p3hd24l14fi" path="res://assets/fonts/SuperRugged.ttf" id="2_vu5r2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j5g0"]
+atlas = ExtResource("1_4m41d")
+region = Rect2(128, 131, 64, 76)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xyew"]
+font = ExtResource("2_vu5r2")
+font_size = 86
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq61u"]
+atlas = ExtResource("1_4m41d")
+region = Rect2(166, 70, 20, 21)
+
+[node name="GameMenu" type="CanvasLayer" unique_id=144385093 node_paths=PackedStringArray("node")]
+script = ExtResource("1_vu5r2")
+node = NodePath("Node")
+
+[node name="Node" type="Control" parent="." unique_id=1771211371]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Node" unique_id=1971153945]
+layout_mode = 0
+offset_right = 1164.0
+offset_bottom = 651.0
+texture = SubResource("AtlasTexture_7j5g0")
+
+[node name="Continue" type="MenuButton" parent="Node" unique_id=533642910]
+custom_maximum_size = Vector2(1024, -1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 97.0
+offset_top = 157.0
+offset_right = 1121.0
+offset_bottom = 293.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Node/Continue" unique_id=1016620515]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -82.5
+offset_right = 458.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_8xyew")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMenu" type="MenuButton" parent="Node" unique_id=329199091]
+custom_maximum_size = Vector2(1024, -1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 84.0
+offset_top = 353.0
+offset_right = 1108.0
+offset_bottom = 513.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Node/BackToMenu" unique_id=2007839061]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -495.0
+offset_top = -78.0
+offset_right = 472.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Menu"
+label_settings = SubResource("LabelSettings_8xyew")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="MenuButton" parent="." unique_id=258540842]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_bottom = 29.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(27.52, 0)
+icon = SubResource("AtlasTexture_wq61u")
+
+[connection signal="pressed" from="Node/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Node/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

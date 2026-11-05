@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://shaders/twirl3.gdshader" id="10_hguk5"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="11_ii5f3"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="13_genyd"]
+[ext_resource type="PackedScene" uid="uid://bgdeoydp3u6xp" path="res://scene/game_menu.tscn" id="13_lel61"]
 [ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/TouchButtons.tscn" id="14_lel61"]
 [ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/GameElements/kill_zone.tscn" id="15_t4olh"]
 
@@ -111,12 +112,13 @@ text = "Muevete hacia la meta"
 [node name="GameManager" type="Node" parent="." unique_id=915650460]
 unique_name_in_owner = true
 script = ExtResource("13_genyd")
-next_level = "res://scene/Levels/lvl2.tscn"
 
 [node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("14_lel61")]
 
 [node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("15_t4olh")]
 position = Vector2(94, 77)
+
+[node name="GameMenu" parent="." unique_id=144385093 instance=ExtResource("13_lel61")]
 
 [connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
 
