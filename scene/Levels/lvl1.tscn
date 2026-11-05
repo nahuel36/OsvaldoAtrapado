@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://deo0nlvjvrws4" path="res://assets/osvaldo/Items/Checkpoints/Start/Start (Idle).png" id="8_o3ti7"]
 [ext_resource type="Shader" uid="uid://cd2hmi843nmkc" path="res://shaders/twirl3.gdshader" id="10_hguk5"]
 [ext_resource type="Script" uid="uid://cxg06oot88rnf" path="res://scripts/color_rect.gd" id="11_ii5f3"]
+[ext_resource type="PackedScene" uid="uid://cbax0ycjoxsxh" path="res://scene/Twirl/swirl_portal.tscn" id="12_genyd"]
 [ext_resource type="Script" uid="uid://duj0falcbfd1q" path="res://scripts/game_manager.gd" id="13_genyd"]
 [ext_resource type="PackedScene" uid="uid://bgdeoydp3u6xp" path="res://scene/game_menu.tscn" id="13_lel61"]
+[ext_resource type="PackedScene" uid="uid://d0utleta4gedu" path="res://scene/Twirl/twirl_canvas_layer.tscn" id="13_t4olh"]
 [ext_resource type="PackedScene" uid="uid://jtxt4pnsigiy" path="res://scene/TouchButtons.tscn" id="14_lel61"]
 [ext_resource type="PackedScene" uid="uid://eccp0pmj03ry" path="res://scene/GameElements/kill_zone.tscn" id="15_t4olh"]
 
@@ -80,6 +82,7 @@ texture = ExtResource("8_o3ti7")
 position = Vector2(171, -13)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=328323370]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1863242513 node_paths=PackedStringArray("swirl_anchor")]
 texture_repeat = 2
@@ -93,6 +96,7 @@ script = ExtResource("11_ii5f3")
 swirl_anchor = NodePath("../../SwirlAnchor")
 
 [node name="SwirlAnchor" type="Marker2D" parent="." unique_id=1076555418]
+visible = false
 position = Vector2(0, 10)
 
 [node name="Label" type="Label" parent="." unique_id=1398297358]
@@ -113,13 +117,22 @@ text = "Muevete hacia la meta"
 unique_name_in_owner = true
 script = ExtResource("13_genyd")
 
-[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("14_lel61")]
-
 [node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("15_t4olh")]
 position = Vector2(94, 77)
+
+[node name="CanvasLayer3" parent="." unique_id=1695600432 instance=ExtResource("13_t4olh")]
+
+[node name="ColorRect" parent="CanvasLayer3" index="0" unique_id=1163652591 node_paths=PackedStringArray("swirl_portal")]
+swirl_portal = NodePath("../../SwirlPortal")
+
+[node name="SwirlPortal" parent="." unique_id=372844943 instance=ExtResource("12_genyd")]
+position = Vector2(0, 0)
+
+[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("14_lel61")]
 
 [node name="GameMenu" parent="." unique_id=144385093 instance=ExtResource("13_lel61")]
 
 [connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
 
 [editable path="Finish"]
+[editable path="CanvasLayer3"]
