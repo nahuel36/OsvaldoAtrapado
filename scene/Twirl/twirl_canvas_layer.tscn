@@ -11,9 +11,9 @@ shader_parameter/swirl_radius = 200.0
 shader_parameter/twist_strength = 3.884
 shader_parameter/effect_amount = 0.6670000316825
 
-[node name="CanvasLayer2" type="CanvasLayer" unique_id=1695600432]
+[node name="TwirlCanvas" type="CanvasLayer" unique_id=1695600432]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1163652591 node_paths=PackedStringArray("swirl_portal")]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1163652591]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_uu2xp")
 anchors_preset = 15
@@ -24,4 +24,3 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_6a8d4")
-swirl_portal = NodePath("")

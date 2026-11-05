@@ -16,7 +16,7 @@ region = Rect2(0, 0, 70, 70)
 atlas = ExtResource("3_f60wf")
 region = Rect2(0, 0, 70, 70)
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=1219658556]
+[node name="TouchCanvas" type="CanvasLayer" unique_id=1219658556]
 
 [node name="Control3" type="Control" parent="." unique_id=1506968417]
 layout_mode = 3
