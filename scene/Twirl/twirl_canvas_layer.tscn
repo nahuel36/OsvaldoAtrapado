@@ -12,6 +12,7 @@ shader_parameter/twist_strength = 3.884
 shader_parameter/effect_amount = 0.6670000316825
 
 [node name="TwirlCanvas" type="CanvasLayer" unique_id=1695600432]
+script = ExtResource("2_6a8d4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1163652591]
 texture_repeat = 2
@@ -23,4 +24,3 @@ offset_top = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_6a8d4")

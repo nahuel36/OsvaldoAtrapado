@@ -1,10 +1,12 @@
 
-extends ColorRect
+extends CanvasLayer
 
+@onready var color_rect: ColorRect = $ColorRect
 @export var swirl_portal: Marker2D
+var mat:ShaderMaterial;
 
 func _process(_delta: float) -> void:
-	var mat := material as ShaderMaterial
+	mat = color_rect.material
 
 	if mat == null or swirl_portal == null:
 		return
@@ -18,10 +20,10 @@ func _process(_delta: float) -> void:
 
 	mat.set_shader_parameter(
 		"swirl_center",
-		screen_position / get_viewport_rect().size
+		screen_position / color_rect.get_viewport_rect().size
 	)
 
 	mat.set_shader_parameter(
 		"viewport_size",
-		get_viewport_rect().size
+		color_rect.get_viewport_rect().size
 	)

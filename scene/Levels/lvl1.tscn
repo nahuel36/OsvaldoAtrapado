@@ -79,10 +79,8 @@ script = ExtResource("13_genyd")
 [node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("15_t4olh")]
 position = Vector2(94, 77)
 
-[node name="TwirlCanvas" parent="." unique_id=1695600432 instance=ExtResource("13_t4olh")]
-
-[node name="ColorRect" parent="TwirlCanvas" index="0" unique_id=1163652591 node_paths=PackedStringArray("swirl_portal")]
-swirl_portal = NodePath("../../SwirlPortal")
+[node name="TwirlCanvas" parent="." unique_id=1695600432 node_paths=PackedStringArray("swirl_portal") instance=ExtResource("13_t4olh")]
+swirl_portal = NodePath("../SwirlPortal")
 
 [node name="SwirlPortal" parent="." unique_id=372844943 instance=ExtResource("12_genyd")]
 position = Vector2(0, 0)
@@ -94,4 +92,3 @@ position = Vector2(0, 0)
 [connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
 
 [editable path="Finish"]
-[editable path="TwirlCanvas"]

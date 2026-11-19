@@ -137,10 +137,8 @@ label_settings = SubResource("LabelSettings_pue4x")
 [node name="SwirlPortal" parent="." unique_id=372844943 instance=ExtResource("8_8q3du")]
 position = Vector2(10, 20)
 
-[node name="TwirlCanvas" parent="." unique_id=1695600432 instance=ExtResource("9_nkmq4")]
-
-[node name="ColorRect" parent="TwirlCanvas" index="0" unique_id=1163652591 node_paths=PackedStringArray("swirl_portal")]
-swirl_portal = NodePath("../../SwirlPortal")
+[node name="TwirlCanvas" parent="." unique_id=1695600432 node_paths=PackedStringArray("swirl_portal") instance=ExtResource("9_nkmq4")]
+swirl_portal = NodePath("../SwirlPortal")
 
 [node name="TouchCanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("13_8q3du")]
 
@@ -156,4 +154,3 @@ script = ExtResource("15_3fifi")
 [connection signal="body_entered" from="Finish/Area2D" to="GameManager" method="_on_area_2d_body_entered"]
 
 [editable path="Finish"]
-[editable path="TwirlCanvas"]
