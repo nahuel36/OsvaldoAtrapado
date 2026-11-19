@@ -25,6 +25,5 @@ position = Vector2(-65.11, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1583525254]
 material = SubResource("ShaderMaterial_8xyew")
-position = Vector2(-0.8899994, 0)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_v2poj")
