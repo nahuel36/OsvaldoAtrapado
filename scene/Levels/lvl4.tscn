@@ -249,7 +249,7 @@ offset_bottom = 92.0
 text = "Puedes saltar"
 label_settings = SubResource("LabelSettings_pue4x")
 
-[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("10_suy7t")]
+[node name="TouchCanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("10_suy7t")]
 
 [node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("11_ypvu2")]
 position = Vector2(94, 130)

@@ -199,7 +199,7 @@ offset_bottom = 64.0
 text = "Un poco mas difí­cil"
 label_settings = SubResource("LabelSettings_pue4x")
 
-[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("10_s7oym")]
+[node name="TouchCanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("10_s7oym")]
 
 [node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("11_th8s4")]
 position = Vector2(94, 130)
