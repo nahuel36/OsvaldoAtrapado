@@ -142,7 +142,7 @@ position = Vector2(10, 20)
 [node name="ColorRect" parent="TwirlCanvas" index="0" unique_id=1163652591 node_paths=PackedStringArray("swirl_portal")]
 swirl_portal = NodePath("../../SwirlPortal")
 
-[node name="CanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("13_8q3du")]
+[node name="TouchCanvasLayer" parent="." unique_id=1219658556 instance=ExtResource("13_8q3du")]
 
 [node name="KillZoneBottom" parent="." unique_id=1319863359 instance=ExtResource("14_nkmq4")]
 position = Vector2(94, 130)
